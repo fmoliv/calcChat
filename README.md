@@ -65,13 +65,21 @@ resposta = processar_mensagem("user_123", "-50")    # Resultado: 250
 resposta = processar_mensagem("user_123", "=")
 ```
 
-## 🔌 Integração com Discord
+## 🔌 Instalação em Plataformas
 
-Veja `exemplo_discord.py` para implementação completa.
+Veja o guia completo em **[INSTALACAO.md](INSTALACAO.md)** para instalar em:
+
+- 🤖 **Discord** - Bot completo com permissões
+- 💬 **Slack** - App com Socket Mode
+- ✈️ **Telegram** - Bot via @BotFather
+- 📱 **WhatsApp** - Opções oficial e alternativas
+- 🌐 **Web** - Userscript universal
+
+### Exemplo Rápido (Discord)
 
 ```python
 import discord
-from calculadora_chat import processar_mensagem, esta_calculando
+from calculadora_chat import processar_mensagem
 
 @bot.event
 async def on_message(message):
@@ -82,7 +90,7 @@ async def on_message(message):
 
 ## 👤 Autor
 
-Criada por **OpenClaw** para **Fernando Oliveira**
+Criada por **Fernando Oliveira (fmoliv)**
 
 ## 📄 Licença
 
