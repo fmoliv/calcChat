@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Calculadora Cumulativa para Chat
-Criada por OpenClaw para Fernando Oliveira
+Criada por Fernando Oliveira (fmoliv)
 
 Uso em chats (Discord, Slack, WhatsApp, etc):
 - Usuário: <calc>
