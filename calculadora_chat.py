@@ -118,7 +118,7 @@ class CalculadoraChat:
         """Formata número para exibição."""
         if numero == int(numero):
             return str(int(numero))
-        return f"{numero:.2f}"
+        return f"{numero:.3f}"
     
     def finalizar(self) -> str:
         """Finaliza o cálculo e mostra resumo."""
