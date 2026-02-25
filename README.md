@@ -1,60 +1,83 @@
-# Calculadora Python
+# Calculadora Cumulativa para Chat
 
-Calculadora completa em Python com operações básicas e científicas.
+Calculadora interativa que funciona em chats (Discord, Slack, WhatsApp, Telegram, etc).
 
-## 🚀 Funcionalidades
+## 🚀 Como Funciona
 
-### Operações Básicas
-- ➕ Soma
-- ➖ Subtração
-- ✖️ Multiplicação
-- ➗ Divisão
+A calculadora acumula resultados passo a passo. Você envia um número com sinal, ela calcula e mostra o resultado atual.
 
-### Operações Científicas
-- 🔢 Potência
-- √ Raiz quadrada
-- 📐 Seno e Cosseno
-- 📊 Logaritmo
-- ❗ Fatorial
+### Exemplo de Conversa
 
-### Extras
-- 📜 Histórico de operações
-- 🎯 Menu interativo
+```
+Você:    <calc>
+Bot:     🧮 Calculadora iniciada!
+         Envie números com sinal:
+         + somar, - subtrair, × multiplicar, ÷ dividir
+         Digite = para ver o resultado final.
 
-## 📦 Instalação
+Você:    +100
+Bot:     📊 +100
+         Resultado: 100
 
-```bash
-git clone https://github.com/fmoliv/calculadora.git
-cd calculadora
+Você:    ×3
+Bot:     📊 ×3
+         Resultado: 300
+
+Você:    -50
+Bot:     📊 -50
+         Resultado: 250
+
+Você:    ÷2
+Bot:     📊 ÷2
+         Resultado: 125
+
+Você:    =
+Bot:     ✅ Cálculo Finalizado!
+         Operações: +100 → ×3 → -50 → ÷2
+         Resultado: 125
 ```
 
-## 🎮 Uso
+## 📝 Comandos
 
-### Modo Interativo
-```bash
-python calculadora.py
-```
+| Comando | Descrição |
+|---------|-----------|
+| `<calc>` | Inicia a calculadora |
+| `+10` | Soma 10 |
+| `-5` | Subtrai 5 |
+| `×3` ou `*3` | Multiplica por 3 |
+| `÷2` ou `/2` | Divide por 2 |
+| `=` | Finaliza e mostra resultado |
 
-### Uso como Biblioteca
+## 💻 Uso em Código
+
 ```python
-from calculadora import Calculadora
+from calculadora_chat import processar_mensagem
 
-calc = Calculadora()
+# Inicia
+resposta = processar_mensagem("user_123", "<calc>")
 
-# Operações básicas
-print(calc.somar(10, 5))        # 15
-print(calc.subtrair(10, 5))     # 5
-print(calc.multiplicar(10, 5))  # 50
-print(calc.dividir(10, 5))      # 2.0
+# Operações
+resposta = processar_mensagem("user_123", "+100")   # Resultado: 100
+resposta = processar_mensagem("user_123", "×3")     # Resultado: 300
+resposta = processar_mensagem("user_123", "-50")    # Resultado: 250
 
-# Operações científicas
-print(calc.potencia(2, 3))      # 8
-print(calc.raiz_quadrada(16))   # 4.0
-print(calc.seno(30))            # 0.5
-print(calc.fatorial(5))         # 120
+# Finaliza
+resposta = processar_mensagem("user_123", "=")
+```
 
-# Histórico
-print(calc.ver_historico())
+## 🔌 Integração com Discord
+
+Veja `exemplo_discord.py` para implementação completa.
+
+```python
+import discord
+from calculadora_chat import processar_mensagem, esta_calculando
+
+@bot.event
+async def on_message(message):
+    resposta = processar_mensagem(str(message.author.id), message.content)
+    if resposta:
+        await message.reply(resposta)
 ```
 
 ## 👤 Autor
